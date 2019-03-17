@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Periodica Test Assignment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Periodica Test Assignment</h1>
+
+<form action="submit">
+    <label for="url_input">Paste a link to an image</label>
+    <input id="url_input" type="text">
+    <input class="button" type="submit">
+</form>
+
+<section class="svg_wrapper">
+    <svg width="584" height="584"
+         viewBox="0 0 584 584"
+         version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewport-fill="white">
+
+        <defs>
+            <clipPath id="image-clip-path">
+                <rect x="178" y="178" width="228" height="228"/>
+            </clipPath>
+        </defs>
+
+        <image clip-path="url(#image-clip-path)" id="image" x="178" y="178" width="228" height="228" xlink:href="https://static.periodica.press/public/photo_dpi72.jpg" />
+
+    </svg>
+    <label class="slider_container">
+        Zoom control
+        <input type="range" min="100" max="300" value="100" class="slider" id="slider_range">
+        <div class="slider_ticks">
+            <p>1</p>
+            <p>1.5</p>
+            <p>2</p>
+            <p>2.5</p>
+            <p>3</p>
+        </div>
+    </label>
+
+</section>
+
+<script src="index.js"></script>
+</body>
+</html>
