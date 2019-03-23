@@ -43,7 +43,6 @@ form.addEventListener('submit', function (event) {
       .then( (res) => {
 
         if (res.ok) {
-
           image.removeAttribute('width');  // Remove width and height to reset them with the new image
           image.removeAttribute('height');
           image.href.baseVal = urlInput.value; // Assign new value for the image url
@@ -60,19 +59,17 @@ image.addEventListener('load', function () {
 
   resetValues();
 
-  let rect = image.getBoundingClientRect();
+  let img = new Image();
+  img.src = image.href.baseVal;
 
   // Set height or width based on the aspect ratio
-  if (rect.width / rect.height > 1) {
-    currentHeight.value = 228;
+  if (img.width / img.height > 1) {
+    baseHeight = currentHeight.value = 228;
+    baseWidth = currentWidth.value = 228 * img.width / img.height;
   } else {
-    currentWidth.value = 228;
+    baseWidth = currentWidth.value = 228;
+    baseHeight = currentHeight.value = 228 *  img.height / img.width;
   }
-
-  rect = image.getBoundingClientRect();
-
-  baseWidth = currentWidth.value  = rect.width;
-  baseHeight = currentHeight.value = rect.height;
 
   minVals = getMinVals();
 });
